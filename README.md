@@ -9,13 +9,14 @@ Please consider following this project's author, [Jon Schlinkert](https://github
 Install with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm install --save extract-comments
+$ npm install --save extract-comment
 ```
+- [] todo
 
 ## Usage
 
 ```js
-var extract = require('extract-comments');
+var extract = require("extract-comment");
 
 // pass a string of JavaScript
 extract(string);
@@ -47,14 +48,14 @@ By default, [esprima](http://esprima.org) is used for extracting comments. This 
 
 Use a published module, such as:
 
-* [babel-extract-comments](https://github.com/jonschlinkert/babel-extract-comments)
-* [esprima-extract-comments](https://github.com/jonschlinkert/esprima-extract-comments)
-* [espree-extract-comments](https://github.com/jonschlinkert/espree-extract-comments)
+- [babel-extract-comments](https://github.com/jonschlinkert/babel-extract-comments)
+- [esprima-extract-comments](https://github.com/jonschlinkert/esprima-extract-comments)
+- [espree-extract-comments](https://github.com/jonschlinkert/espree-extract-comments)
 
 Example:
 
 ```js
-extract(str, {extractor: require('babel-extract-comments')});
+extract(str, { extractor: require("babel-extract-comments") });
 ```
 
 If you create a compatible extractor, feel free to do pr [or create an issue](https://github.com/jonschlinkert/extract-comments/issues/new) to add it to the readme!
@@ -70,7 +71,7 @@ extract(str, {
     // - loc: with `start` and `end` line and column
     // example:
     return [
-      { 
+      {
         type: 'Block',
         {start: { line: 1, column: 0 },
           end: { line: 5, column: 33 }},
@@ -89,15 +90,15 @@ Extract comments from the given `string`.
 
 **Params**
 
-* `string` **{String}**
-* `options` **{Object}**: Pass `first: true` to return after the first comment is found.
-* `tranformFn` **{Function}**: (optional) Tranform function to modify each comment
-* `returns` **{Array}**: Returns an array of comment objects
+- `string` **{String}**
+- `options` **{Object}**: Pass `first: true` to return after the first comment is found.
+- `tranformFn` **{Function}**: (optional) Tranform function to modify each comment
+- `returns` **{Array}**: Returns an array of comment objects
 
 **Example**
 
 ```js
-const extract = require('extract-comments');
+const extract = require("extract-comment");
 console.log(extract(string, options));
 ```
 
@@ -107,9 +108,9 @@ Extract block comments from the given `string`.
 
 **Params**
 
-* `string` **{String}**
-* `options` **{Object}**: Pass `first: true` to return after the first comment is found.
-* `returns` **{String}**
+- `string` **{String}**
+- `options` **{Object}**: Pass `first: true` to return after the first comment is found.
+- `returns` **{String}**
 
 **Example**
 
@@ -123,9 +124,9 @@ Extract line comments from the given `string`.
 
 **Params**
 
-* `string` **{String}**
-* `options` **{Object}**: Pass `first: true` to return after the first comment is found.
-* `returns` **{String}**
+- `string` **{String}**
+- `options` **{Object}**: Pass `first: true` to return after the first comment is found.
+- `returns` **{String}**
 
 **Example**
 
@@ -139,9 +140,9 @@ Extract the first comment from the given `string`.
 
 **Params**
 
-* `string` **{String}**
-* `options` **{Object}**: Pass `first: true` to return after the first comment is found.
-* `returns` **{String}**
+- `string` **{String}**
+- `options` **{Object}**: Pass `first: true` to return after the first comment is found.
+- `returns` **{String}**
 
 **Example**
 
@@ -153,12 +154,12 @@ console.log(extract.first(string, options));
 
 **v0.10.0**
 
-* Parsing is now handled by esprima, so only JavaScript can be parsed. I'm working on parsers for other languages and will cross-link those here when they're pushed up.
-* Breaking change: since parsing is now done by esprima, on both the line and block comment objects, the `loc.start.pos` and `loc.end.pos` properties have been renamed to `loc.start.column` and `loc.end.column`.
+- Parsing is now handled by esprima, so only JavaScript can be parsed. I'm working on parsers for other languages and will cross-link those here when they're pushed up.
+- Breaking change: since parsing is now done by esprima, on both the line and block comment objects, the `loc.start.pos` and `loc.end.pos` properties have been renamed to `loc.start.column` and `loc.end.column`.
 
 **v0.9.0**
 
-* Breaking change: `lines` property was removed from `Block` comments, since this can easily be done by splitting `value`
+- Breaking change: `lines` property was removed from `Block` comments, since this can easily be done by splitting `value`
 
 ## About
 
@@ -197,33 +198,33 @@ $ npm install -g verbose/verb#dev verb-generate-readme && verb
 
 You might also be interested in these projects:
 
-* [babel-extract-comments](https://www.npmjs.com/package/babel-extract-comments): Uses babel (babylon) to extract JavaScript code comments from a JavaScript string or file. | [homepage](https://github.com/jonschlinkert/babel-extract-comments "Uses babel (babylon) to extract JavaScript code comments from a JavaScript string or file.")
-* [code-context](https://www.npmjs.com/package/code-context): Parse a string of javascript to determine the context for functions, variables and comments based… [more](https://github.com/jonschlinkert/code-context) | [homepage](https://github.com/jonschlinkert/code-context "Parse a string of javascript to determine the context for functions, variables and comments based on the code that follows.")
-* [espree-extract-comments](https://www.npmjs.com/package/espree-extract-comments): Uses espree to extract JavaScript code comments from a string. Returns an array of comment… [more](https://github.com/jonschlinkert/espree-extract-comments) | [homepage](https://github.com/jonschlinkert/espree-extract-comments "Uses espree to extract JavaScript code comments from a string. Returns an array of comment objects, with line, column, index, comment type and comment string.")
-* [esprima-extract-comments](https://www.npmjs.com/package/esprima-extract-comments): Extract code comments from string or from a glob of files using esprima. | [homepage](https://github.com/jonschlinkert/esprima-extract-comments "Extract code comments from string or from a glob of files using esprima.")
-* [parse-comments](https://www.npmjs.com/package/parse-comments): Parse code comments from JavaScript or any language that uses the same format. | [homepage](https://github.com/jonschlinkert/parse-comments "Parse code comments from JavaScript or any language that uses the same format.")
+- [babel-extract-comments](https://www.npmjs.com/package/babel-extract-comments): Uses babel (babylon) to extract JavaScript code comments from a JavaScript string or file. | [homepage](https://github.com/jonschlinkert/babel-extract-comments "Uses babel (babylon) to extract JavaScript code comments from a JavaScript string or file.")
+- [code-context](https://www.npmjs.com/package/code-context): Parse a string of javascript to determine the context for functions, variables and comments based… [more](https://github.com/jonschlinkert/code-context) | [homepage](https://github.com/jonschlinkert/code-context "Parse a string of javascript to determine the context for functions, variables and comments based on the code that follows.")
+- [espree-extract-comments](https://www.npmjs.com/package/espree-extract-comments): Uses espree to extract JavaScript code comments from a string. Returns an array of comment… [more](https://github.com/jonschlinkert/espree-extract-comments) | [homepage](https://github.com/jonschlinkert/espree-extract-comments "Uses espree to extract JavaScript code comments from a string. Returns an array of comment objects, with line, column, index, comment type and comment string.")
+- [esprima-extract-comments](https://www.npmjs.com/package/esprima-extract-comments): Extract code comments from string or from a glob of files using esprima. | [homepage](https://github.com/jonschlinkert/esprima-extract-comments "Extract code comments from string or from a glob of files using esprima.")
+- [parse-comments](https://www.npmjs.com/package/parse-comments): Parse code comments from JavaScript or any language that uses the same format. | [homepage](https://github.com/jonschlinkert/parse-comments "Parse code comments from JavaScript or any language that uses the same format.")
 
 ### Contributors
 
-| **Commits** | **Contributor** | 
-| --- | --- |
-| 93 | [jonschlinkert](https://github.com/jonschlinkert) |
-| 3 | [cazzer](https://github.com/cazzer) |
-| 1 | [architectcodes](https://github.com/architectcodes) |
+| **Commits** | **Contributor**                                     |
+| ----------- | --------------------------------------------------- |
+| 93          | [jonschlinkert](https://github.com/jonschlinkert)   |
+| 3           | [cazzer](https://github.com/cazzer)                 |
+| 1           | [architectcodes](https://github.com/architectcodes) |
 
 ### Author
 
 **Jon Schlinkert**
 
-* [linkedin/in/jonschlinkert](https://linkedin.com/in/jonschlinkert)
-* [github/jonschlinkert](https://github.com/jonschlinkert)
-* [twitter/jonschlinkert](https://twitter.com/jonschlinkert)
+- [linkedin/in/jonschlinkert](https://linkedin.com/in/jonschlinkert)
+- [github/jonschlinkert](https://github.com/jonschlinkert)
+- [twitter/jonschlinkert](https://twitter.com/jonschlinkert)
 
 ### License
 
 Copyright © 2018, [Jon Schlinkert](https://github.com/jonschlinkert).
 Released under the [MIT License](LICENSE).
 
-***
+---
 
 _This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on February 12, 2018._
